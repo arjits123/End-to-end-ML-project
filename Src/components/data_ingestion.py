@@ -11,6 +11,10 @@ from sklearn.model_selection import train_test_split
 #very important class
 from dataclasses import dataclass
 
+#importing from data_transformation
+from data_transformation import DataTransformationConfig
+from data_transformation import DataTransformation
+
 
 @dataclass
 class DataIngestionConfig:
@@ -29,7 +33,7 @@ class DataIngestion:
         try:
             #Reading the data from csv file
             df = pd.read_csv('notebook/data/StudentsPerformance.csv')
-
+     
             logging.info('Read the dataset as the dataframe') #logging
 
             #creating the folder 'artifacts'
@@ -57,5 +61,10 @@ class DataIngestion:
         
 
 if __name__ == "__main__":
+    # Data ingestiom
     obj = DataIngestion()
-    obj.initiate_data_ingestion()
+    train_data, test_data = obj.initiate_data_ingestion()
+
+    # Data transformations
+    data_transformation = DataTransformation()
+    data_transformation.initiate_data_transformation(train_data, test_data)
