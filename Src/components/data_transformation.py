@@ -111,7 +111,8 @@ class DataTransformation:
             
             input_feature_test_arr = preprocessing_obj.transform(input_features_test_df)
             
-            #concatenate on the second axis(columns)
+            # concatenate on the second axis(columns)
+            # then send a whole train array (kind of train df is created) and similarily test array is created
             train_arr = np.c_[
                 input_feature_train_arr, np.array(target_feature_train_df)
             ]
@@ -124,7 +125,8 @@ class DataTransformation:
                 file_path = self.data_transformation_config.prerpcessor_file_path,
                 obj = preprocessing_obj
             )
-
+            
+            # Returning train array (or we can say transformed_train_df or transformed_test_df)
             return (
                 train_arr,
                 test_arr,
