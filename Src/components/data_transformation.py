@@ -46,7 +46,7 @@ class DataTransformation:
             #created numerical features pipeline
             numerical_feature_pipeline = Pipeline(
                 steps = [
-                    ("impyter", SimpleImputer(strategy='median')),
+                    ("imputer", SimpleImputer(strategy='median')),
                     ('scaler', StandardScaler(with_mean=False))
                 ]
             )
