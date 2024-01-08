@@ -16,17 +16,14 @@ from data_transformation import DataTransformationConfig
 from data_transformation import DataTransformation
 
 #Importing model_trainer 
-from model_trainner import ModelTrainerConfig
-from model_trainner import ModelTrainer
-
-
-
+# from model_trainner import ModelTrainerConfig
+# from model_trainner import ModelTrainer
 
 @dataclass
 class DataIngestionConfig:
     train_data_path : str = os.path.join('artifacts','train.csv')
     test_data_path : str = os.path.join('artifacts','test.csv')
-    raw_data_path : str = os.path.join('artifacts','raw.csv')
+    raw_data_path: str = os.path.join('artifacts','raw.csv')
 
 
 class DataIngestion:
@@ -74,6 +71,7 @@ if __name__ == "__main__":
     # Data transformations
     data_transformation = DataTransformation()
     train_arr, test_arr,_ = data_transformation.initiate_data_transformation(train_data, test_data)
+    print(train_arr)
 
     # Model trainner 
     model_trainer = ModelTrainer()
